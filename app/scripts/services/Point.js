@@ -5,6 +5,8 @@ angular.module('minesweeperApp')
     var Point = function(x, y) {
       this.x = x;
       this.y = y;
+
+      this.hasMines = false;
     };
 
     return Point;
