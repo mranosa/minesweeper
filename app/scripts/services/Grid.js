@@ -41,13 +41,14 @@ angular.module('minesweeperApp')
           var currPoint = this.getRandomPoint();
           if(!currPoint.hasMines){
             currPoint.hasMines = true;
+            this.updateMineCount(currPoint);
             mineCount--;
           }
         }
       },
       initAdjacentPoints: function(){
-        for (var x = 0; x < xSize; x++) {
-          for (var y = 0; y < ySize; y++) {
+        for (var x = 0; x < this.xSize; x++) {
+          for (var y = 0; y < this.ySize; y++) {
             var currPoint = this.getPoint(x, y);
             
             if(this.getPoint(x - 1, y - 1)) currPoint.adjacentPoints.push(this.getPoint(x - 1, y - 1));
@@ -59,6 +60,11 @@ angular.module('minesweeperApp')
             if(this.getPoint(x + 1, y)) currPoint.adjacentPoints.push(this.getPoint(x + 1, y));
             if(this.getPoint(x + 1, y + 1)) currPoint.adjacentPoints.push(this.getPoint(x + 1, y + 1));
           } 
+        };
+      },
+      updateMineCount: function(point){
+        for (var i = 0; i < point.adjacentPoints.length; i++) {
+          point.adjacentPoints[i].adjacentMines += 1;
         };
       }
     }

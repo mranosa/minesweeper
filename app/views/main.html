@@ -1,7 +1,7 @@
 <table>
 	<tr ng-repeat="line in grid.lines">
 		<td ng-repeat="point in line">
-			{{point.hasMines}}
+			{{point.adjacentMines}}
 		</td>
 	</tr>
 </table>
