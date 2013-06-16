@@ -17,5 +17,14 @@ angular.module('minesweeperApp')
       };
     };
 
+    Grid.prototype = {
+      getPoint: function(x, y){
+        return this.lines[x][y];
+      },
+      getRandomPoint: function(){
+        //TODO implement me
+      }
+    }
+
     return Grid;
   });
