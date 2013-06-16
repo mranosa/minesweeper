@@ -2,15 +2,9 @@
 
 angular.module('minesweeperApp')
   .factory('Point', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
+    var Point = function(val) {
+      this.val = val;
     };
+
+    return Point;
   });
