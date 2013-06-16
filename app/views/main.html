@@ -1,6 +1,7 @@
-<div>
-	<div ng-repeat="item in grid">
-		<div ng-repeat="point in item">{{point.val}}</div>
-		<br>
-	</div>
-</div>
+<table>
+	<tr ng-repeat="line in lines">
+		<td ng-repeat="point in line">
+			{{point.val}}
+		</td>
+	</tr>
+</table>

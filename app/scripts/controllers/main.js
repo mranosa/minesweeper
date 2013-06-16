@@ -4,16 +4,22 @@ angular.module('minesweeperApp')
   .controller('MainCtrl', function ($scope) {
   	$scope.xSize = 8;
   	$scope.ySize = 8;
-    $scope.grid = {};
+    $scope.lines = [];
 
     function initGrid(xSize, ySize){
     	for (var x = 0; x < xSize; x++) {
+    		var line = [];
     		for (var y = 0; y < ySize; y++) {
-    			if(!$scope.grid[x][y]) $scope.grid[x][y] = {};
-  				$scope.grid[x][y].val = x + '-' + y;
+    			var point = {
+    				val : x + '-' + y
+    			};
+
+    			line.push(point);
     		}	
+
+    		$scope.lines.push(line);
     	};
     }
 
-    initGrid(8, 8);
+    initGrid($scope.xSize, $scope.ySize);
   });
