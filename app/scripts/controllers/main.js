@@ -10,7 +10,7 @@ angular.module('minesweeperApp')
     	for (var x = 0; x < xSize; x++) {
     		var line = [];
     		for (var y = 0; y < ySize; y++) {
-    			line.push(new Point(x + '-' + y));
+    			line.push(new Point(x, y));
     		}	
 
     		$scope.lines.push(line);
