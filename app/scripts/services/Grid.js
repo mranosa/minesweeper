@@ -1,16 +1,21 @@
 'use strict';
 
 angular.module('minesweeperApp')
-  .factory('Grid', function () {
-    // Service logic
-    // ...
+  .factory('Grid', function (Point) {
+    var Grid = function(xSize, ySize) {
+      this.xSize = xSize;
+      this.ySize = ySize;
+      this.lines = [];
 
-    var meaningOfLife = 42;
+      for (var x = 0; x < xSize; x++) {
+        var line = [];
+        for (var y = 0; y < ySize; y++) {
+          line.push(new Point(x, y));
+        } 
 
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
+        this.lines.push(line);
+      };
     };
+
+    return Grid;
   });
