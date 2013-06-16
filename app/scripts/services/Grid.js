@@ -22,7 +22,13 @@ angular.module('minesweeperApp')
         return this.lines[x][y];
       },
       getRandomPoint: function(){
-        //TODO implement me
+        var xRandom = this.getRandomInt(0, this.xSize - 1);
+        var yRandom = this.getRandomInt(0, this.ySize - 1);
+
+        return this.getPoint(xRandom, yRandom);
+      }, 
+      getRandomInt: function(min, max){
+        return Math.floor(Math.random() * (max - min + 1)) + min;
       }
     }
 
