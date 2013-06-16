@@ -16,6 +16,7 @@ angular.module('minesweeperApp')
         this.lines.push(line);
       };
 
+      this.initAdjacentPoints();
       this.initMines(10);
     };
 
@@ -23,7 +24,7 @@ angular.module('minesweeperApp')
       getPoint: function(x, y){
         if(x >= this.xSize || x < 0 || y >= this.ySize || y < 0) 
           return undefined;
-        
+
         return this.lines[x][y];
       },
       getRandomPoint: function(){
@@ -43,6 +44,22 @@ angular.module('minesweeperApp')
             mineCount--;
           }
         }
+      },
+      initAdjacentPoints: function(){
+        for (var x = 0; x < xSize; x++) {
+          for (var y = 0; y < ySize; y++) {
+            var currPoint = this.getPoint(x, y);
+            
+            if(this.getPoint(x - 1, y - 1)) currPoint.adjacentPoints.push(this.getPoint(x - 1, y - 1));
+            if(this.getPoint(x - 1, y)) currPoint.adjacentPoints.push(this.getPoint(x - 1, y));
+            if(this.getPoint(x - 1, y + 1)) currPoint.adjacentPoints.push(this.getPoint(x - 1, y + 1));
+            if(this.getPoint(x, y - 1)) currPoint.adjacentPoints.push(this.getPoint(x, y - 1));
+            if(this.getPoint(x, y + 1)) currPoint.adjacentPoints.push(this.getPoint(x, y + 1));
+            if(this.getPoint(x + 1, y - 1)) currPoint.adjacentPoints.push(this.getPoint(x + 1, y - 1));
+            if(this.getPoint(x + 1, y)) currPoint.adjacentPoints.push(this.getPoint(x + 1, y));
+            if(this.getPoint(x + 1, y + 1)) currPoint.adjacentPoints.push(this.getPoint(x + 1, y + 1));
+          } 
+        };
       }
     }
 
