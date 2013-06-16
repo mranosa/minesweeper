@@ -21,6 +21,9 @@ angular.module('minesweeperApp')
 
     Grid.prototype = {
       getPoint: function(x, y){
+        if(x >= this.xSize || x < 0 || y >= this.ySize || y < 0) 
+          return undefined;
+        
         return this.lines[x][y];
       },
       getRandomPoint: function(){

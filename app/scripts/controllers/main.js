@@ -5,6 +5,6 @@ angular.module('minesweeperApp')
     
     $scope.grid = new Grid(8, 8);
 
-    $scope.samplePoint = $scope.grid.getRandomPoint();
+    $scope.samplePoint = $scope.grid.getPoint(-1, 1);
 
   });
