@@ -15,6 +15,8 @@ angular.module('minesweeperApp')
 
         this.lines.push(line);
       };
+
+      this.initMines(10);
     };
 
     Grid.prototype = {
@@ -29,6 +31,15 @@ angular.module('minesweeperApp')
       }, 
       getRandomInt: function(min, max){
         return Math.floor(Math.random() * (max - min + 1)) + min;
+      },
+      initMines: function(mineCount){
+        while(mineCount != 0){
+          var currPoint = this.getRandomPoint();
+          if(!currPoint.hasMines){
+            currPoint.hasMines = true;
+            mineCount--;
+          }
+        }
       }
     }
 
