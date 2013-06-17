@@ -64,8 +64,12 @@ angular.module('minesweeperApp')
       },
       updateMineCount: function(point){
         for (var i = 0; i < point.adjacentPoints.length; i++) {
-          point.adjacentPoints[i].adjacentMines += 1;
+          if(!point.adjacentPoints[i].hasMines)
+            point.adjacentPoints[i].adjacentMines += 1;
         };
+
+        //TODO remove bomb pointer after
+        point.adjacentMines = '-';
       }
     }
 
